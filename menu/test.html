@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Page</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/all.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">   
+  <div id="menu-container"></div>
+
+    <!-- <標題開始> -->
+ <p class="__web-inspector-hide-shortcut__ bread"> 
+       <a href="http://www.topsnet.com.tw/index.php"> 首頁</a> <span> > </span>   
+    <a href="index.html">Microsoft 365</a>
+    <span> &gt; 協作安全保護</span>
+  </p>  
+  <!-- <標題結束> -->
+     <!-------------------------------------------------------------------------->
+      <h3>協作安全問題可能是……<span class="inblock">但不限於以下所列：</span></h3>
+      <div class="boxG box-3">
+        <div class="box">
+          <p>員工使用自己的雲端空間，儲存公司資料以方便分享連結給客戶</p>
+        </div>
+        <div class="box">
+          <p>員工使用 LINE 來協同作業；訊息雜亂、公私不分</p>
+        </div>
+      </div>
+    </div>
+  
+
+
+
+  <script src="js/lib/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gotop.js"></script>
+
+  <script>
+    $(function () {
+      $("#menu-container").load("menu.html");
+    });
+  </script>
+
+</body>
+</html>

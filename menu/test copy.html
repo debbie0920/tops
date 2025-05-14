@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Page</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/all.css" rel="stylesheet">
+  <link href="css/jquery.bxslider.css" rel="stylesheet"> 
+
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px; /* 設定最大寬度 */
+    margin: 0 auto;
+  }
+  .carousel-inner img {
+    width: 100%;
+    display: none;
+  }
+  .carousel-inner img.active {
+    display: block;
+  }
+  
+  /* 底部圓點導航 */
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .carousel-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .carousel-dots .dot.active {
+    background: #333;
+  }
+  
+
+
+</head>
+
+<body>
+  <div class="container">   
+  <div id="menu-container"></div>
+
+    <!-- <標題開始> -->
+ <p class="__web-inspector-hide-shortcut__ bread"> 
+       <a href="http://www.topsnet.com.tw/index.php"> 首頁</a> <span> > </span>   
+    <a href="index.html">Microsoft 365</a>
+    <span> &gt; 協作安全保護</span>
+  </p>  
+  <!-- <標題結束> -->
+     <!------------------------------------
+
+  <!- 輪播區塊 -->
+  <div class="carousel">
+    <div class="carousel-inner">
+
+         <li><a href="http://www.topsnet.com.tw/classify.php?c=23"><img src="images/20190904135122-060onsn60idni1gscn0md42s21-1567576282.jpg" alt="分類連結"></a></li>
+        <li><a href="http://www.topsnet.com.tw/product.php?c=6&amp;w=82"><img src="images/20171003182910-bgdt0preejllqosr0e0ncrqkh3-1507026550.jpg" alt="產品連結"></a></li>
+        <li><a href="https://buzzorange.com/techorange/2019/09/23/iiot-data-security/"><img src="images/20190925121044-v18p3gj503331e1auonrk5ipl5-1569384644.jpg" alt="安全性連結"></a></li>
+        <li><a href="http://www.topsnet.com.tw/contact.php"><img src="images/20181026141753-57md3q6dm02q8086d9p5fdll96-1540534673.jpg" alt="聯絡我們"></a></li>
+      </ul>
+    
+    <div class="carousel-dots"></div>
+  </div>
+
+  <p>test page</p>
+
+ <!-- 載入 jQuery 與 bxSlider -->
+<script src="js/lib/jquery-3.3.1.min.js"></script>
+<!-- <script src="js/lib/jquery.bxslider.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  $(function () {
+    $("#menu-container").load("menu.html");
+  });
+
+  // 載入 jQuery 與 bxSlider -->
+
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.carousel-inner img');
+  const dotsContainer = document.querySelector('.carousel-dots');
+  let current = 0;
+  let interval = null;
+  const slideCount = slides.length;
+  const delay = 5000; // 每 5 秒自動切換
+
+  // 1) 動態生成圓點
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = dotsContainer.children;
+
+  // 2) 切換到第 index 張
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  // 3) 下一張
+  function next() {
+    goTo((current + 1) % slideCount);
+  }
+
+  // 4) 啟動自動播放
+  function startAuto() {
+    interval = setInterval(next, delay);
+  }
+
+  // 5) 停止自動播放（滑鼠移入時）
+  function stopAuto() {
+    clearInterval(interval);
+  }
+
+  // 6) 滑鼠進出時暫停/繼續
+  const carouselEl = document.querySelector('.carousel');
+  carouselEl.addEventListener('mouseenter', stopAuto);
+  carouselEl.addEventListener('mouseleave', startAuto);
+
+  // 初始化
+  startAuto();
+});
+</script>
+
+</body>

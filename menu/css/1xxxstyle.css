@@ -1,0 +1,71 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.menu {
+  display: none;
+  background-color: #eee;
+  padding: 1rem;
+}
+.menu.show {
+  display: block;
+}
+.menu_btn {
+  width: 30px;
+  cursor: pointer;
+}
+.menu_btn span {
+  display: block;
+  height: 4px;
+  background: #333;
+  margin: 5px 0;
+}
+
+
+/* === 以下為補丁：階層選單、動態字型大小、移除圓圈圈 === */
+
+/* === [調整選單項目前圓圈圈樣式，覆蓋 list-style] === */
+.menu ul,
+.menu li {
+  list-style: none; /* 移除原有圓圈圈 */
+}
+
+/* === [選單連結樣式，依視窗大小自動縮放字體與間距] === */
+.menu li a {
+  display: block;
+  padding: 0.4rem 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.4rem); /* 字體隨視窗寬度縮放 */
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+
+/* === [階層式子選單預設隱藏] === */
+.menu li ul {
+  display: none;
+  padding-left: 1rem;
+  background-color: #f9f9f9;
+}
+
+/* === [階層式子選單展開狀態] === */
+.menu li ul.show {
+  display: block;
+}
+
+/* === [為有子選單的項目增加箭頭符號，切換收合] === */
+.menu li.has-submenu > a::after {
+  content: "▼";
+  float: right;
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+.menu li.has-submenu.open > a::after {
+  content: "▲";
+}
